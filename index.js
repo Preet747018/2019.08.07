@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(function(req,res,next){
     console.log("I'm in the middle");
+    console.log(req.body.username);
+    console.log(req.body.username);
 });
 
 app.get('/',function(req,res){
