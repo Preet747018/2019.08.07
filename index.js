@@ -10,11 +10,29 @@ const site=http.createServer(function(req,res){
 site.listen(3000);*/
 
 
-var express=require('express')
-var app=express()
+var express=require('express');
+var app=express();
+const bodyParser=require('body-parser');
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+app.use(function(req,res,next){
+    console.log("I'm in the middle");
+});
 
 app.get('/',function(req,res){
-    res.send('Hello World')
-})
+    conslose.log(req.body);
+    res.send('GET sent')
+});
+app.get('/',function(req,res){
+    conslose.log(req.body);
+    res.send('POST sent')
+});
+app.get('/',function(req,res){
+    res.send('PUT sent')
+});
+app.get('/',function(req,res){
+    res.send('DELETE sent')
+});
 
 app.listen(3000);
